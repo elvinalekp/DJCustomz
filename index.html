@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DJ Customz – Custom Laser Engraving & Printing | Springfield, OH</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --ink: #0F1113;
+  --slate: #181B1F;
+  --panel: #20242A;
+  --steel: #98A2AD;
+  --birch: #EBDDC0;
+  --walnut: #8A5A33;
+  --laser: #FF5A1F;
+  --laser-soft: #FF8A57;
+  --paper: #F6F2EA;
+  --text: #17191C;
+  --muted: #6B6E73;
+  --line: rgba(15,17,19,0.12);
+  --line-light: rgba(246,242,234,0.13);
+}
+
+html { scroll-behavior: smooth; }
+body { background: var(--paper); color: var(--text); font-family: 'IBM Plex Sans', sans-serif; font-weight: 400; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+
+.preview-bar { background: var(--laser); color: #fff; text-align: center; padding: 0.55rem 1rem; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+
+/* NAV */
+nav { position: sticky; top: 0; z-index: 100; background: rgba(15,17,19,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line-light); padding: 0 3rem; height: 66px; display: flex; justify-content: space-between; align-items: center; }
+.logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+.logo-mark { width: 36px; height: 36px; background: var(--laser); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 0.95rem; color: #fff; letter-spacing: -0.02em; }
+.logo-text { line-height: 1.05; }
+.logo-name { font-family: 'Space Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: var(--paper); letter-spacing: -0.01em; }
+.logo-sub { font-size: 0.58rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--steel); }
+.nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+.nav-links a { text-decoration: none; font-size: 0.74rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(246,242,234,0.62); transition: color 0.2s; }
+.nav-links a:hover { color: var(--laser-soft); }
+.nav-cta { background: var(--laser); color: #fff !important; padding: 0.6rem 1.3rem; border-radius: 4px; font-weight: 600 !important; }
+.nav-cta:hover { background: #ff7140; }
+
+/* HERO */
+.hero { min-height: 92vh; display: grid; grid-template-columns: 1.1fr 1fr; overflow: hidden; }
+.hero-left { background: var(--ink); padding: 6rem 4.5rem; display: flex; flex-direction: column; justify-content: center; position: relative; }
+.hero-left::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 55% at 0% 100%, rgba(255,90,31,0.18) 0%, transparent 62%); pointer-events: none; }
+.eyebrow { display: flex; align-items: center; gap: 0.8rem; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase; color: var(--laser-soft); margin-bottom: 1.5rem; position: relative; opacity: 0; animation: fadeUp 0.7s forwards 0.2s; }
+.eyebrow::before { content: ''; width: 28px; height: 2px; background: var(--laser); }
+.hero-title { font-family: 'Space Grotesk', sans-serif; font-size: clamp(2.9rem, 5.4vw, 5.6rem); font-weight: 700; line-height: 1; letter-spacing: -0.03em; color: var(--paper); position: relative; opacity: 0; animation: fadeUp 0.9s forwards 0.35s; }
+.hero-title em { font-style: normal; color: var(--laser); }
+.hero-sub { font-size: 1.05rem; line-height: 1.8; color: rgba(246,242,234,0.64); margin-top: 1.8rem; max-width: 440px; position: relative; opacity: 0; animation: fadeUp 0.9s forwards 0.5s; }
+.hero-ctas { display: flex; gap: 1rem; margin-top: 2.4rem; flex-wrap: wrap; position: relative; opacity: 0; animation: fadeUp 0.9s forwards 0.65s; }
+.btn { display: inline-block; text-decoration: none; padding: 1rem 2rem; border-radius: 4px; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; transition: all 0.25s; font-family: 'IBM Plex Sans', sans-serif; border: none; cursor: pointer; }
+.btn-laser { background: var(--laser); color: #fff; }
+.btn-laser:hover { background: #ff7140; transform: translateY(-2px); box-shadow: 0 10px 28px rgba(255,90,31,0.38); }
+.btn-ghost { background: transparent; color: var(--paper); border: 1.5px solid rgba(246,242,234,0.3); }
+.btn-ghost:hover { border-color: var(--laser-soft); color: var(--laser-soft); }
+.btn-dark { background: var(--ink); color: var(--paper); }
+.btn-dark:hover { background: var(--panel); transform: translateY(-2px); }
+.hero-stats { display: flex; gap: 2.4rem; margin-top: 3.3rem; padding-top: 2.3rem; border-top: 1px solid var(--line-light); flex-wrap: wrap; position: relative; opacity: 0; animation: fadeUp 0.9s forwards 0.8s; }
+.stat-num { font-family: 'Space Grotesk', sans-serif; font-size: 1.9rem; font-weight: 700; color: var(--laser); line-height: 1; }
+.stat-label { font-size: 0.66rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(246,242,234,0.48); margin-top: 0.3rem; }
+
+.hero-right { background: var(--slate); position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.hero-right::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(246,242,234,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(246,242,234,0.04) 1px, transparent 1px); background-size: 44px 44px; }
+.hero-right-inner { position: relative; z-index: 2; text-align: center; padding: 3rem; width: 100%; max-width: 500px; }
+.slab { width: 100%; display: block; margin: 0 auto 1.8rem; filter: drop-shadow(0 26px 40px rgba(0,0,0,0.5)); }
+.beam { animation: pulse 2.4s ease-in-out infinite; }
+.hero-card { background: rgba(246,242,234,0.06); border: 1px solid var(--line-light); border-left: 3px solid var(--laser); border-radius: 6px; padding: 1.3rem 1.7rem; text-align: left; margin-bottom: 1rem; }
+.hero-card-label { font-size: 0.62rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--laser-soft); margin-bottom: 0.4rem; }
+.hero-card-text { font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; line-height: 1.45; color: var(--paper); }
+.hero-pill { display: inline-block; background: var(--laser); color: #fff; padding: 0.6rem 1.3rem; border-radius: 4px; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+
+/* STRIP */
+.strip { background: var(--laser); padding: 0.9rem 3rem; display: flex; justify-content: center; align-items: center; gap: 2.2rem; flex-wrap: wrap; }
+.strip span { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #fff; }
+.strip i { width: 4px; height: 4px; border-radius: 50%; background: #fff; opacity: 0.5; display: block; }
+
+/* SECTIONS */
+.label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase; color: var(--laser); display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.8rem; }
+.label::before { content: ''; width: 24px; height: 2px; background: var(--laser); }
+.title { font-family: 'Space Grotesk', sans-serif; font-size: clamp(2rem, 4vw, 3.3rem); font-weight: 700; line-height: 1.06; letter-spacing: -0.025em; color: var(--ink); margin-bottom: 2.4rem; }
+.title em { font-style: normal; color: var(--laser); }
+
+.services { padding: 7rem 4rem; max-width: 1250px; margin: 0 auto; }
+.svc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.svc { background: var(--paper); padding: 2rem 1.7rem; transition: background 0.25s; position: relative; }
+.svc:hover { background: #fff; }
+.svc::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: var(--laser); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
+.svc:hover::after { transform: scaleX(1); }
+.svc-num { font-family: 'Space Grotesk', sans-serif; font-size: 0.78rem; font-weight: 600; color: var(--laser); letter-spacing: 0.1em; margin-bottom: 1.2rem; }
+.svc-name { font-family: 'Space Grotesk', sans-serif; font-size: 1.2rem; font-weight: 600; margin-bottom: 0.5rem; letter-spacing: -0.01em; }
+.svc-desc { font-size: 0.86rem; color: var(--muted); line-height: 1.65; }
+
+/* HOW */
+.how { background: var(--ink); color: var(--paper); padding: 7rem 4rem; }
+.how-inner { max-width: 1250px; margin: 0 auto; }
+.how .title { color: var(--paper); }
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line-light); }
+.step { background: var(--slate); padding: 2.4rem 2rem; transition: background 0.25s; }
+.step:hover { background: var(--panel); }
+.step-n { font-family: 'Space Grotesk', sans-serif; font-size: 3rem; font-weight: 700; color: rgba(255,90,31,0.25); line-height: 1; margin-bottom: 1rem; }
+.step-t { font-family: 'Space Grotesk', sans-serif; font-size: 1.15rem; font-weight: 600; margin-bottom: 0.4rem; }
+.step-d { font-size: 0.85rem; color: rgba(246,242,234,0.55); line-height: 1.65; }
+
+/* COMPARE */
+.compare { padding: 7rem 4rem; max-width: 1250px; margin: 0 auto; }
+.cmp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+.cmp-col { border-radius: 8px; overflow: hidden; border: 1px solid var(--line); }
+.cmp-head { padding: 1.3rem 1.8rem; display: flex; align-items: center; justify-content: space-between; }
+.cmp-col.old .cmp-head { background: #E3DED3; }
+.cmp-col.new .cmp-head { background: var(--laser); color: #fff; }
+.cmp-title { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.15rem; }
+.cmp-tag { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 0.25rem 0.7rem; border-radius: 980px; background: rgba(0,0,0,0.12); }
+.cmp-list { background: #fff; padding: 0.6rem 1.8rem 1.4rem; list-style: none; }
+.cmp-list li { padding: 0.95rem 0; border-bottom: 1px solid var(--line); font-size: 0.9rem; line-height: 1.55; display: flex; gap: 0.8rem; }
+.cmp-list li:last-child { border-bottom: none; }
+.cmp-mark { flex-shrink: 0; font-weight: 700; }
+.cmp-col.old .cmp-mark { color: #A0482A; }
+.cmp-col.new .cmp-mark { color: #2E8B57; }
+.cmp-col.old li { color: var(--muted); }
+.cmp-foot { font-size: 0.74rem; color: var(--muted); margin-top: 1.2rem; }
+
+/* GALLERY */
+.gallery { background: var(--birch); padding: 7rem 4rem; }
+.gallery-inner { max-width: 1250px; margin: 0 auto; }
+.gal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.tile { aspect-ratio: 4 / 3; border-radius: 6px; position: relative; overflow: hidden; display: flex; align-items: flex-end; padding: 1.2rem; color: #fff; }
+.tile::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(15,17,19,0.78), transparent 60%); }
+.tile span { position: relative; z-index: 1; }
+.tile-t { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 1.05rem; display: block; }
+.tile-s { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.72; }
+.t1 { background: repeating-linear-gradient(95deg, #8A5A33 0 7px, #7C4F2B 7px 11px, #94623A 11px 19px); }
+.t2 { background: repeating-linear-gradient(0deg, #2B2F35 0 14px, #262A30 14px 28px); }
+.t3 { background: linear-gradient(135deg, #3A4048, #1D2024); }
+.t4 { background: repeating-linear-gradient(45deg, #6B6E73 0 10px, #5F6267 10px 20px); }
+.t5 { background: repeating-linear-gradient(95deg, #C9A878 0 8px, #BF9C6B 8px 13px, #D1B282 13px 21px); }
+.t6 { background: linear-gradient(135deg, #FF5A1F, #B33A0E); }
+.gal-note { font-size: 0.76rem; color: #5b4f3a; margin-top: 1.2rem; }
+
+/* FUNDAY */
+.funday { background: var(--slate); color: var(--paper); padding: 6rem 4rem; }
+.funday-inner { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: center; }
+.funday .title { color: var(--paper); margin-bottom: 1.2rem; }
+.funday p { font-size: 0.98rem; line-height: 1.85; color: rgba(246,242,234,0.62); margin-bottom: 1.6rem; }
+.ticket { background: var(--laser); border-radius: 8px; padding: 2.2rem; color: #fff; position: relative; transform: rotate(-2deg); box-shadow: 0 20px 40px rgba(0,0,0,0.35); }
+.ticket::before, .ticket::after { content: ''; position: absolute; top: 50%; width: 22px; height: 22px; background: var(--slate); border-radius: 50%; transform: translateY(-50%); }
+.ticket::before { left: -11px; } .ticket::after { right: -11px; }
+.ticket-t { font-family: 'Space Grotesk', sans-serif; font-size: 2rem; font-weight: 700; line-height: 1; }
+.ticket-s { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.85; margin-top: 0.6rem; }
+
+/* QUOTE */
+.quote { padding: 7rem 4rem; max-width: 1250px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.15fr; gap: 5rem; align-items: start; }
+.quote-left p { font-size: 0.98rem; line-height: 1.85; color: var(--muted); margin-bottom: 1.2rem; }
+.quote-pts { list-style: none; margin-top: 1.6rem; }
+.quote-pts li { display: flex; gap: 0.8rem; align-items: center; padding: 0.55rem 0; font-size: 0.92rem; font-weight: 500; }
+.quote-pts li::before { content: ''; width: 8px; height: 8px; background: var(--laser); border-radius: 50%; flex-shrink: 0; }
+.form { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 2.4rem; box-shadow: 0 18px 50px rgba(15,17,19,0.07); }
+.form-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.4rem; font-weight: 700; margin-bottom: 0.3rem; }
+.form-sub { font-size: 0.82rem; color: var(--muted); margin-bottom: 1.6rem; }
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.field { display: flex; flex-direction: column; gap: 0.35rem; margin-bottom: 1rem; }
+.field label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); }
+.field input, .field select, .field textarea { padding: 0.8rem 0.95rem; border: 1.5px solid var(--line); border-radius: 4px; font-family: 'IBM Plex Sans', sans-serif; font-size: 0.9rem; background: var(--paper); outline: none; transition: border-color 0.2s; }
+.field input:focus, .field select:focus, .field textarea:focus { border-color: var(--laser); background: #fff; }
+.field textarea { resize: vertical; min-height: 96px; }
+.upload { border: 1.5px dashed rgba(15,17,19,0.3); border-radius: 4px; padding: 1rem; background: var(--paper); font-size: 0.82rem; color: var(--muted); }
+.upload small { display: block; margin-top: 0.4rem; font-size: 0.7rem; }
+.submit { width: 100%; margin-top: 0.4rem; }
+
+/* CONTACT */
+.contact { background: var(--ink); color: var(--paper); padding: 6rem 4rem; }
+.contact-inner { max-width: 1250px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; }
+.c-label { font-size: 0.62rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--laser-soft); margin-bottom: 0.4rem; }
+.c-val { font-family: 'Space Grotesk', sans-serif; font-size: 1.35rem; font-weight: 600; margin-bottom: 1.4rem; line-height: 1.35; }
+.c-val a { color: var(--paper); text-decoration: none; }
+.c-val a:hover { color: var(--laser-soft); }
+.socials { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.socials a { text-decoration: none; color: rgba(246,242,234,0.75); border: 1px solid var(--line-light); padding: 0.5rem 1rem; border-radius: 980px; font-size: 0.78rem; font-weight: 500; transition: all 0.2s; }
+.socials a:hover { border-color: var(--laser-soft); color: var(--laser-soft); }
+.note { font-size: 0.72rem; color: rgba(246,242,234,0.38); margin-top: 0.6rem; }
+
+footer { background: #0A0B0C; color: var(--paper); padding: 2.4rem 4rem; border-top: 3px solid var(--laser); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: 0.74rem; color: rgba(246,242,234,0.4); }
+.footer-name { font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--paper); font-size: 1rem; }
+
+.sticky-call { display: none; }
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes pulse { 0%, 100% { opacity: 0.75; } 50% { opacity: 1; } }
+
+@media (max-width: 1024px) { .svc-grid, .steps { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 900px) {
+  nav { padding: 0 1.4rem; }
+  .nav-links li:not(:last-child) { display: none; }
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-left { padding: 4.5rem 1.5rem 3rem; }
+  .hero-right { min-height: 420px; }
+  .strip { padding: 0.8rem 1.4rem; gap: 1rem; }
+  .services, .compare, .quote { padding: 4.5rem 1.5rem; }
+  .how, .gallery, .funday, .contact { padding: 4.5rem 1.5rem; }
+  .svc-grid, .steps, .gal-grid, .cmp-grid { grid-template-columns: 1fr; }
+  .funday-inner, .quote, .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  .row { grid-template-columns: 1fr; }
+  .ticket { transform: none; }
+  footer { padding: 2rem 1.5rem 5.5rem; }
+  .sticky-call { display: block; position: fixed; left: 0; right: 0; bottom: 0; z-index: 200; background: var(--laser); color: #fff; text-align: center; padding: 1rem; font-weight: 600; font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="preview-bar">Concept preview built for DJ Customz · Photos, prices and details to be confirmed with David</div>
+
+<nav>
+  <a href="#top" class="logo">
+    <div class="logo-mark">DJ</div>
+    <div class="logo-text">
+      <div class="logo-name">DJ Customz</div>
+      <div class="logo-sub">Springfield, Ohio</div>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">What We Make</a></li>
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#funday">DJC Funday</a></li>
+    <li><a href="#quote" class="nav-cta">Get a Quote</a></li>
+  </ul>
+</nav>
+
+<section class="hero" id="top">
+  <div class="hero-left">
+    <div class="eyebrow">Family Owned · Laser Engraving · Custom Printing</div>
+    <h1 class="hero-title">We can put <em>anything</em> on anything.</h1>
+    <p class="hero-sub">Unique custom items made per order, from a family-owned shop in Springfield, Ohio. If you can dream it, we can bring it to life.</p>
+    <div class="hero-ctas">
+      <a href="#quote" class="btn btn-laser">Request a Quote</a>
+      <a href="#services" class="btn btn-ghost">See What We Make</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-num">100%</div><div class="stat-label">Made Per Order</div></div>
+      <div><div class="stat-num">Family</div><div class="stat-label">Owned Business</div></div>
+      <div><div class="stat-num">7 Days</div><div class="stat-label">Open Mon to Sun</div></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-right-inner">
+      <svg class="slab" viewBox="0 0 460 320" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="wood" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9B6A3F"/><stop offset="1" stop-color="#7A4C28"/></linearGradient>
+          <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#FF8A57" stop-opacity="0.95"/><stop offset="1" stop-color="#FF5A1F" stop-opacity="0"/></radialGradient>
+        </defs>
+        <rect x="30" y="70" width="400" height="200" rx="14" fill="url(#wood)"/>
+        <g stroke="#6B4122" stroke-width="1.4" opacity="0.55" fill="none">
+          <path d="M40 100 C140 90 260 112 420 96"/><path d="M40 130 C150 124 270 142 420 128"/><path d="M40 160 C140 152 260 172 420 158"/><path d="M40 190 C150 184 270 202 420 190"/><path d="M40 222 C140 216 260 232 420 220"/>
+        </g>
+        <text x="230" y="195" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="104" fill="#3A2210" letter-spacing="-4">DJ</text>
+        <g fill="none" stroke="#3A2210" stroke-width="3" opacity="0.8"><rect x="52" y="92" width="356" height="156" rx="8"/></g>
+        <line x1="230" y1="0" x2="272" y2="170" stroke="#FF5A1F" stroke-width="3" class="beam"/>
+        <circle cx="272" cy="170" r="30" fill="url(#glow)" class="beam"/>
+        <circle cx="272" cy="170" r="5" fill="#FFE2D2"/>
+      </svg>
+      <div class="hero-card">
+        <div class="hero-card-label">Our Motto</div>
+        <div class="hero-card-text">“If you can dream it, we can bring it to life.”</div>
+      </div>
+      <div class="hero-pill">Springfield, OH · 937-215-4470</div>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <span>Laser Engraving</span><i></i><span>Custom Printing</span><i></i><span>Shirts &amp; Hoodies</span><i></i><span>Cups &amp; Blankets</span><i></i><span>Decals</span><i></i><span>Business Advertising</span>
+</div>
+
+<section class="services" id="services">
+  <div class="label">What We Make</div>
+  <h2 class="title">Eight ways to get <em>something one of a kind.</em></h2>
+  <div class="svc-grid">
+    <div class="svc"><div class="svc-num">01</div><div class="svc-name">Laser Engraving</div><div class="svc-desc">Permanent, detailed engraving made to order. Browse the gallery to see what we can do.</div></div>
+    <div class="svc"><div class="svc-num">02</div><div class="svc-name">Custom Printing</div><div class="svc-desc">More than just your average printers. We can print on a wide range of materials.</div></div>
+    <div class="svc"><div class="svc-num">03</div><div class="svc-name">Shirts &amp; Hoodies</div><div class="svc-desc">Custom apparel for teams, events, businesses and gifts.</div></div>
+    <div class="svc"><div class="svc-num">04</div><div class="svc-name">Cups &amp; Blankets</div><div class="svc-desc">Personalized drinkware and blankets, made per order.</div></div>
+    <div class="svc"><div class="svc-num">05</div><div class="svc-name">Decals</div><div class="svc-desc">Custom decals for vehicles, gear and anything else you want to mark as yours.</div></div>
+    <div class="svc"><div class="svc-num">06</div><div class="svc-name">Business Advertising</div><div class="svc-desc">Branded items that put your business name in front of people.</div></div>
+    <div class="svc"><div class="svc-num">07</div><div class="svc-name">Knives, Coins &amp; More</div><div class="svc-desc">Custom pieces for collectors and gifts. Ask David about what's available.</div></div>
+    <div class="svc"><div class="svc-num">08</div><div class="svc-name">Vehicle, Parts &amp; Firearms</div><div class="svc-desc">Motorcycle and vehicle parts, plus firearm specials with price breaks on multiple purchases. Contact David.</div></div>
+  </div>
+</section>
+
+<section class="how" id="how">
+  <div class="how-inner">
+    <div class="label">How It Works</div>
+    <h2 class="title">From idea to <em>finished piece.</em></h2>
+    <div class="steps">
+      <div class="step"><div class="step-n">01</div><div class="step-t">Share your idea</div><div class="step-d">Tell us what you want made and send your artwork or a photo.</div></div>
+      <div class="step"><div class="step-n">02</div><div class="step-t">Get a quote</div><div class="step-d">David reviews your request and gets back to you with a price.</div></div>
+      <div class="step"><div class="step-n">03</div><div class="step-t">We make it</div><div class="step-d">Every item is made per order, so yours is never off the shelf.</div></div>
+      <div class="step"><div class="step-n">04</div><div class="step-t">It's yours</div><div class="step-d">Pick up your piece and enjoy something truly one of a kind.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="compare">
+  <div class="label">Why Refresh the Site</div>
+  <h2 class="title">Built to turn visitors <em>into orders.</em></h2>
+  <div class="cmp-grid">
+    <div class="cmp-col old">
+      <div class="cmp-head"><div class="cmp-title">Today</div><span class="cmp-tag">Current site</span></div>
+      <ul class="cmp-list">
+        <li><span class="cmp-mark">✕</span>17 menu tabs, from Cups and Decals to Guns, Coins and Game Systems</li>
+        <li><span class="cmp-mark">✕</span>Contact form with name, email and subject only, with no place to describe a custom job or attach artwork</li>
+        <li><span class="cmp-mark">✕</span>No clear hours, only "Open Mon-Sun"</li>
+        <li><span class="cmp-mark">✕</span>Gallery photos carry generic labels, so Google has little to go on</li>
+        <li><span class="cmp-mark">✕</span>Basic page title and description, with little to help local searches</li>
+        <li><span class="cmp-mark">✕</span>Copyright still reads 2024</li>
+      </ul>
+    </div>
+    <div class="cmp-col new">
+      <div class="cmp-head"><div class="cmp-title">With a refresh</div><span class="cmp-tag">This concept</span></div>
+      <ul class="cmp-list">
+        <li><span class="cmp-mark">✓</span><span><b>8 clear categories</b> so people see what you do in seconds</span></li>
+        <li><span class="cmp-mark">✓</span><span><b>A real quote request</b> with item type, quantity, details and artwork upload</span></li>
+        <li><span class="cmp-mark">✓</span><span><b>Hours and how to order</b> spelled out</span></li>
+        <li><span class="cmp-mark">✓</span><span><b>Labeled galleries</b> by product, so every photo works for you</span></li>
+        <li><span class="cmp-mark">✓</span><span><b>Local search basics</b> aimed at "laser engraving Springfield OH" and similar</span></li>
+        <li><span class="cmp-mark">✓</span><span><b>Mobile-first</b> with a tap-to-call button always in reach</span></li>
+      </ul>
+    </div>
+  </div>
+  <p class="cmp-foot">Comparison is based on the current homepage at djcustomz.com. For the owner's eyes; this panel comes out before launch.</p>
+</section>
+
+<section class="gallery" id="gallery">
+  <div class="gallery-inner">
+    <div class="label">Gallery</div>
+    <h2 class="title">See what we've <em>been making.</em></h2>
+    <div class="gal-grid">
+      <div class="tile t1"><span><span class="tile-t">Laser Engraving</span><span class="tile-s">Wood and more</span></span></div>
+      <div class="tile t2"><span><span class="tile-t">Custom Printing</span><span class="tile-s">Wide range of materials</span></span></div>
+      <div class="tile t3"><span><span class="tile-t">Shirts &amp; Hoodies</span><span class="tile-s">Made per order</span></span></div>
+      <div class="tile t4"><span><span class="tile-t">Cups &amp; Drinkware</span><span class="tile-s">Personalized</span></span></div>
+      <div class="tile t5"><span><span class="tile-t">Blankets</span><span class="tile-s">Custom designs</span></span></div>
+      <div class="tile t6"><span><span class="tile-t">Decals</span><span class="tile-s">Stick it anywhere</span></span></div>
+    </div>
+    <p class="gal-note">Placeholder tiles. David's own photos go here, each labeled and linked to a quote request.</p>
+  </div>
+</section>
+
+<section class="funday" id="funday">
+  <div class="funday-inner">
+    <div>
+      <div class="label">DJC Funday</div>
+      <h2 class="title">Join the <em>raffle fun.</em></h2>
+      <p>Join the DJC Funday group on Facebook to enter the raffles and see what you could win. See more of what's up for grabs, then jump in.</p>
+      <a href="https://www.facebook.com/groups/307597818379648" target="_blank" class="btn btn-laser">Join DJC Funday</a>
+    </div>
+    <div class="ticket"><div class="ticket-t">DJC<br>FUNDAY</div><div class="ticket-s">Raffle · Facebook group</div></div>
+  </div>
+</section>
+
+<section class="quote" id="quote">
+  <div class="quote-left">
+    <div class="label">Free Quote</div>
+    <h2 class="title">Tell us what <em>you're picturing.</em></h2>
+    <p>Describe your idea, add your artwork if you have it, and David will get back to you with a quote. Every item is made per order.</p>
+    <ul class="quote-pts"><li>One-of-a-kind, made per order</li><li>Family-owned, Springfield, Ohio</li><li>Call or text any time: 937-215-4470</li></ul>
+  </div>
+  <form class="form" id="quote-form" onsubmit="return sendQuote(event)">
+    <div class="form-title">Request a quote</div>
+    <div class="form-sub">Preview form: sends your details to David by email.</div>
+    <div class="row">
+      <div class="field"><label>Name</label><input type="text" id="f-name" placeholder="Your name" required></div>
+      <div class="field"><label>Phone or email</label><input type="text" id="f-contact" placeholder="How should we reach you?" required></div>
+    </div>
+    <div class="row">
+      <div class="field"><label>What do you want made?</label>
+        <select id="f-type">
+          <option>Laser engraving</option><option>Custom printing</option><option>Shirts or hoodies</option><option>Cups</option><option>Blankets</option><option>Decals</option><option>Business advertising</option><option>Something else</option>
+        </select>
+      </div>
+      <div class="field"><label>Quantity</label><input type="text" id="f-qty" placeholder="e.g. 1, 12, 100"></div>
+    </div>
+    <div class="field"><label>Details</label><textarea id="f-details" placeholder="Tell us about your idea, colors, sizes, deadline..."></textarea></div>
+    <div class="field"><label>Artwork (optional)</label><div class="upload"><input type="file" disabled> <small>Artwork upload goes live in the final version. For now, reply to David's email with your files.</small></div></div>
+    <button type="submit" class="btn btn-laser submit">Send My Request</button>
+  </form>
+</section>
+
+<section class="contact">
+  <div class="contact-inner">
+    <div>
+      <div class="c-label">Phone</div>
+      <div class="c-val"><a href="tel:9372154470">937-215-4470</a></div>
+      <div class="c-label">Email</div>
+      <div class="c-val"><a href="mailto:djcustomz@yahoo.com">djcustomz@yahoo.com</a></div>
+    </div>
+    <div>
+      <div class="c-label">Location</div>
+      <div class="c-val">Springfield, Ohio</div>
+      <div class="c-label">Open</div>
+      <div class="c-val">Monday to Sunday</div>
+      <div class="note">Exact hours and pickup details to be confirmed with David.</div>
+    </div>
+    <div>
+      <div class="c-label">Follow DJ Customz</div>
+      <div class="socials">
+        <a href="https://www.instagram.com/djcustomz_2023" target="_blank">Instagram</a>
+        <a href="https://twitter.com/djcustomz2023" target="_blank">X</a>
+        <a href="https://www.facebook.com/groups/362591682146330" target="_blank">Facebook</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div><div class="footer-name">DJ Customz</div>Unique custom items made per order · Springfield, OH</div>
+  <div>© 2026 DJ Customz · Concept preview, not the official site</div>
+</footer>
+
+<a href="tel:9372154470" class="sticky-call">Call David · 937-215-4470</a>
+
+<script>
+function sendQuote(e) {
+  e.preventDefault();
+  var g = function (id) { return document.getElementById(id).value; };
+  var body = 'Name: ' + g('f-name') + '\nContact: ' + g('f-contact') + '\nItem: ' + g('f-type') + '\nQuantity: ' + g('f-qty') + '\n\nDetails:\n' + g('f-details');
+  window.location.href = 'mailto:djcustomz@yahoo.com?subject=' + encodeURIComponent('Quote request: ' + g('f-type')) + '&body=' + encodeURIComponent(body);
+  return false;
+}
+</script>
+</body>
+</html>
